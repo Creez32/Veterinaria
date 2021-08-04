@@ -1,0 +1,42 @@
+.productos{
+    background-color: grey;
+}
+
+.productos main{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.productos main h1{
+    margin: 10px;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.productos main section{
+    
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+.productos main section article{
+    background-color: white;
+    width: 20%;
+    box-shadow: 5px 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+.productos main section article img{
+    width: 100%;
+}
+.productos main section article .card{
+    padding: 10px;
+}
+.productos main section article h3{
+    font-size: 2rem;
+}
+.productos main section article span{
+    color: green;
+    font-size: 2rem;
+}
+.productos main section article p{
+    font-size: 14px;
+}

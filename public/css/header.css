@@ -1,0 +1,30 @@
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    width: 100px;
+    height: 100px;
+}
+header .logo img{
+    width: 100%;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li{
+    display: flex;
+    align-items: center;
+}
+nav ul li a{
+    background-color: rgb(138, 138, 138);
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+    <body class="productos">
+        
+        <%- include('./partials/header') %>
+
+            <main>
+                <h1>Productos</h1>
+                <section>
+                    <% productos.forEach(producto=> { %>
+                        <article>
+                            <div>
+                                <img src="/images/alimento balanceado.png" alt="">
+                            </div>
+                            <div class="card">
+                                <h3>
+                                    <%= producto.nombre %>
+                                </h3>
+                                <span>
+                                    <%= producto.precio %>
+                                </span>
+                            </div>
+                        </article>
+                        <% }) %>
+                </section>
+            </main>
+
+            <%- include('./partials/footer') %>
+    </body>
+
+</html>
