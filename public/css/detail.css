@@ -1,0 +1,84 @@
+.detail main{
+    width: 90%;
+    margin: 0 auto;
+}
+.detail main h1{
+    text-align: center;
+    margin: 20px 0;
+}
+.detail main .inicio{
+    display: flex;
+   border: 1px dotted rgb(104, 104, 104);
+   border-radius: 10px;
+   justify-content: space-around;
+}
+.detail main .inicio img{
+    width: 30%;
+}
+.detail main .inicio .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail main .inicio .content h3{
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+.detail main .inicio .content span{
+    text-align: center;
+    color: green;
+    font-size: 4rem;
+}
+.detail main .inicio .content .cantidad {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+.detail main .inicio .content .cantidad input{
+    width: 40px;
+}
+.detail main .inicio .content .color .supercolor{
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
+}
+.detail main .inicio .content .color{
+    margin: 20px 0;
+}
+.detail main .inicio .content .color input{
+    display: none
+}
+.detail main .inicio .content .color label{
+    margin: 0 20px;
+    width: 30px;
+    height: 30px;
+}a
+.detail main .inicio .content .color label.red{
+    background-color: red;
+    color: rgba(0, 0, 0, 0);
+}
+.detail main .inicio .content .color label.azul{
+    background-color: blue;
+    color: rgba(0, 0, 0, 0);
+}
+.detail main .inicio .content .color label.verde{
+    background-color: green;
+    color: rgba(0, 0, 0, 0);
+}
+.detail main .inicio .content .color input:checked ~ label{
+    border: 2px solid yellow;
+}
+.detail main .botones button {
+    background-color: blueviolet;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 20px;
+}
+
+.detail main .table {
+
+}

@@ -9,6 +9,14 @@ module.exports = {
         })
     },
     detail : (req,res) => {
-        res.render('detai')
-    }
+        let id = +req.params.id
+        let producto = productos.find(producto => producto.id === id)
+
+        res.render('detail',{
+            producto
+        })
+    },
+    cart: (req,res) => {
+        res.render('cart')
+    },
 }

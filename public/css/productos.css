@@ -19,9 +19,13 @@
     flex-wrap:wrap;
     justify-content: space-around;
 }
+.productos main a {
+    width: 100%;
+}
 .productos main section article{
     background-color: white;
-    width: 20%;
+    width: 100%;
+    margin: 10px 0;
     box-shadow: 5px 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
 .productos main section article img{
@@ -39,4 +43,14 @@
 }
 .productos main section article p{
     font-size: 14px;
+}
+@media (min-width:425px){
+    .productos main a {
+        width: 48%;
+    }
+}
+@media (min-width:768px){
+    .productos main a {
+        width: 22%;
+    } 
 }
