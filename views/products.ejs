@@ -11,19 +11,21 @@
                 <h1>Productos</h1>
                 <section>
                     <% productos.forEach(producto=> { %>
-                        <article>
-                            <div>
-                                <img src="/images/alimento balanceado.png" alt="">
-                            </div>
-                            <div class="card">
-                                <h3>
-                                    <%= producto.nombre %>
-                                </h3>
-                                <span>
-                                    <%= producto.precio %>
-                                </span>
-                            </div>
-                        </article>
+                        <a href="/product/detail/<%= producto.id %> ">
+                            <article>
+                                <div>
+                                    <img src="/images/<%= producto.imagen %> " alt="">
+                                </div>
+                                <div class="card">
+                                    <h3>
+                                        <%= producto.nombre %>
+                                    </h3>
+                                    <span>
+                                        <%= producto.precio %>
+                                    </span>
+                                </div>
+                            </article>
+                        </a>
                         <% }) %>
                 </section>
             </main>

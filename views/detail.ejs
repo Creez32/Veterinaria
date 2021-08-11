@@ -3,11 +3,64 @@
 
     <%- include('./partials/head') %> 
     
-<body>
+<body class="detail">
     <%- include('./partials/header') %> 
 
     <main>
-        <h1>detail</h1>
+        <h1><%= producto.nombre %> </h1>
+        <section>
+            
+            <article>
+                <div class="inicio">
+                    <img src="/images/<%= producto.imagen %> " alt="">
+                    <div class="content">
+                        <span><%= producto.precio %> </span>
+                        <div class="cantidad">
+                            <button> + </button>
+                            <input type="number">
+                            <button> - </button>
+                        </div>
+                        <div class="color">
+                            <h3>Color</h3>
+                            <div class='supercolor'>
+                                <div>
+                                    <input type="radio" name="color" id="red" class="red">
+                                    <label for="red" class="red">Rojo</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="color" id="azul" class="azul">
+                                    <label for="azul" class="azul">Azul</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="color" id="verde" class="verde">
+                                    <label for="verde" class="verde">Verde</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="botones">
+                            <button>Comprar</button>
+                            <button>Agregar al carrito</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="descripcion">
+                    <p><%= producto.descripcion %></p>
+                </div>
+                <div class="table">
+                    <ul>
+                        <li>Variedad</li>
+                        <li>Categoria</li>
+                        <li>Edad</li>
+                    </ul>
+                    <ul>
+                        <li><%= producto.variedad %></li>
+                        <li><%= producto.categoria %></li>
+                        <li><%= producto.edad %></li>
+                    </ul>
+                </div>
+            </article>
+        </section>
     </main>
 
     <%- include('./partials/footer') %>

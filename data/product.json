@@ -8,7 +8,7 @@
         "categoria": "Bustard, stanley",
         "edad": 53,
         "cantidadPeso": 67,
-        "imagen": 51,
+        "imagen": "1.jpg",
         "stock": 623
     },
     {
@@ -20,7 +20,7 @@
         "categoria": "Wallaby, whip-tailed",
         "edad": 76,
         "cantidadPeso": 28,
-        "imagen": 94,
+        "imagen": "2.jpg",
         "stock": 849
     },
     {
@@ -32,7 +32,7 @@
         "categoria": "Sarus crane",
         "edad": 88,
         "cantidadPeso": 1,
-        "imagen": 76,
+        "imagen": "3.jpg",
         "stock": 836
     },
     {
@@ -44,7 +44,7 @@
         "categoria": "Squirrel, pine",
         "edad": 50,
         "cantidadPeso": 64,
-        "imagen": 51,
+        "imagen":"4.jpg",
         "stock": 547
     },
     {
@@ -56,7 +56,7 @@
         "categoria": "Tortoise, galapagos",
         "edad": 67,
         "cantidadPeso": 47,
-        "imagen": 100,
+        "imagen": "5.jpg",
         "stock": 399
     },
     {
@@ -68,7 +68,7 @@
         "categoria": "Ring-tailed possum",
         "edad": 50,
         "cantidadPeso": 29,
-        "imagen": 17,
+        "imagen": "6.jpg",
         "stock": 372
     },
     {
@@ -80,7 +80,7 @@
         "categoria": "Mudskipper (unidentified)",
         "edad": 25,
         "cantidadPeso": 58,
-        "imagen": 82,
+        "imagen": "7.jpg",
         "stock": 305
     },
     {
@@ -92,7 +92,7 @@
         "categoria": "Oryx, beisa",
         "edad": 22,
         "cantidadPeso": 5,
-        "imagen": 66,
+        "imagen": "8.jpg",
         "stock": 776
     },
     {
@@ -104,7 +104,7 @@
         "categoria": "Cockatoo, roseate",
         "edad": 82,
         "cantidadPeso": 58,
-        "imagen": 66,
+        "imagen": "9.jpg",
         "stock": 625
     },
     {
@@ -116,7 +116,7 @@
         "categoria": "Mallard",
         "edad": 81,
         "cantidadPeso": 42,
-        "imagen": 23,
+        "imagen": "10.jpg",
         "stock": 528
     },
     {
@@ -128,7 +128,7 @@
         "categoria": "Bear, polar",
         "edad": 84,
         "cantidadPeso": 32,
-        "imagen": 46,
+        "imagen": "11.jpg",
         "stock": 391
     },
     {
@@ -140,7 +140,7 @@
         "categoria": "Fox, north american red",
         "edad": 52,
         "cantidadPeso": 79,
-        "imagen": 15,
+        "imagen": "12.jpg",
         "stock": 626
     },
     {
@@ -152,7 +152,7 @@
         "categoria": "Rhea, common",
         "edad": 19,
         "cantidadPeso": 52,
-        "imagen": 26,
+        "imagen": "13.jpg",
         "stock": 303
     },
     {
@@ -164,7 +164,7 @@
         "categoria": "Tortoise, asian foreset",
         "edad": 37,
         "cantidadPeso": 73,
-        "imagen": 29,
+        "imagen": "14.jpg",
         "stock": 646
     },
     {
@@ -176,7 +176,7 @@
         "categoria": "Pelican, eastern white",
         "edad": 31,
         "cantidadPeso": 15,
-        "imagen": 62,
+        "imagen": "15.jpg",
         "stock": 196
     },
     {
@@ -188,7 +188,7 @@
         "categoria": "Oryx, fringe-eared",
         "edad": 58,
         "cantidadPeso": 76,
-        "imagen": 73,
+        "imagen": "16.jpg",
         "stock": 794
     },
     {
@@ -200,7 +200,7 @@
         "categoria": "Western lowland gorilla",
         "edad": 34,
         "cantidadPeso": 82,
-        "imagen": 8,
+        "imagen": "17.jpg",
         "stock": 782
     },
     {
@@ -212,7 +212,7 @@
         "categoria": "Mouse, four-striped grass",
         "edad": 8,
         "cantidadPeso": 48,
-        "imagen": 95,
+        "imagen": "18.jpg",
         "stock": 434
     },
     {
@@ -224,7 +224,7 @@
         "categoria": "Egret, cattle",
         "edad": 58,
         "cantidadPeso": 78,
-        "imagen": 68,
+        "imagen": "19.jpg",
         "stock": 916
     },
     {
@@ -236,7 +236,7 @@
         "categoria": "Gull, herring",
         "edad": 26,
         "cantidadPeso": 7,
-        "imagen": 16,
+        "imagen": "20.jpg",
         "stock": 453
     }
 ]
