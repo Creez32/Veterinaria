@@ -2,7 +2,7 @@
     {
         "id": 1,
         "nombre": "Corry",
-        "precio": "$2968.03",
+        "precio": 2968.03,
         "descripcion": "Managed 24 hour challenge",
         "variedad": "Huglin",
         "categoria": "Bustard, stanley",
@@ -14,7 +14,7 @@
     {
         "id": 2,
         "nombre": "Antonio",
-        "precio": "$3150.65",
+        "precio": 3150.64,
         "descripcion": "Profit-focused solution-oriented neural-net",
         "variedad": "Lawrenson",
         "categoria": "Wallaby, whip-tailed",
@@ -26,7 +26,7 @@
     {
         "id": 3,
         "nombre": "Freemon",
-        "precio": "$2249.81",
+        "precio": 2249.81,
         "descripcion": "Quality-focused zero tolerance hardware",
         "variedad": "Rutty",
         "categoria": "Sarus crane",
@@ -38,7 +38,7 @@
     {
         "id": 4,
         "nombre": "Lamond",
-        "precio": "$1511.95",
+        "precio": 511.95,
         "descripcion": "Managed multi-tasking budgetary management",
         "variedad": "Kanwell",
         "categoria": "Squirrel, pine",
@@ -50,7 +50,7 @@
     {
         "id": 5,
         "nombre": "Starlin",
-        "precio": "$1795.11",
+        "precio": 1795.11,
         "descripcion": "Open-architected secondary matrices",
         "variedad": "Worsam",
         "categoria": "Tortoise, galapagos",
@@ -62,7 +62,7 @@
     {
         "id": 6,
         "nombre": "Christiana",
-        "precio": "$9208.93",
+        "precio": 9208.93,
         "descripcion": "Integrated mobile success",
         "variedad": "Densun",
         "categoria": "Ring-tailed possum",
@@ -74,7 +74,7 @@
     {
         "id": 7,
         "nombre": "Abbott",
-        "precio": "$1686.64",
+        "precio": 1686.64,
         "descripcion": "Cross-platform clear-thinking throughput",
         "variedad": "Nicely",
         "categoria": "Mudskipper (unidentified)",
@@ -86,7 +86,7 @@
     {
         "id": 8,
         "nombre": "Yolane",
-        "precio": "$3771.63",
+        "precio": 771.63,
         "descripcion": "Universal attitude-oriented concept",
         "variedad": "Petofi",
         "categoria": "Oryx, beisa",
@@ -98,7 +98,7 @@
     {
         "id": 9,
         "nombre": "Vida",
-        "precio": "$9479.57",
+        "precio": 9479.57,
         "descripcion": "User-friendly holistic service-desk",
         "variedad": "Lehemann",
         "categoria": "Cockatoo, roseate",
@@ -110,7 +110,7 @@
     {
         "id": 10,
         "nombre": "Dennet",
-        "precio": "$3948.23",
+        "precio": 3948.23,
         "descripcion": "Profit-focused static workforce",
         "variedad": "Littlefield",
         "categoria": "Mallard",
@@ -122,7 +122,7 @@
     {
         "id": 11,
         "nombre": "Othilie",
-        "precio": "$8241.33",
+        "precio": 8241.33,
         "descripcion": "Mandatory bottom-line solution",
         "variedad": "Rozet",
         "categoria": "Bear, polar",
@@ -134,7 +134,7 @@
     {
         "id": 12,
         "nombre": "Guillermo",
-        "precio": "$6068.21",
+        "precio": 6068.21,
         "descripcion": "Future-proofed disintermediate data-warehouse",
         "variedad": "Hazlewood",
         "categoria": "Fox, north american red",
@@ -146,7 +146,7 @@
     {
         "id": 13,
         "nombre": "Darcy",
-        "precio": "$2636.51",
+        "precio": 2636.51,
         "descripcion": "Extended well-modulated model",
         "variedad": "Hagland",
         "categoria": "Rhea, common",
@@ -158,7 +158,7 @@
     {
         "id": 14,
         "nombre": "Kata",
-        "precio": "$6125.36",
+        "precio": 6125.36,
         "descripcion": "Configurable high-level middleware",
         "variedad": "Kubu",
         "categoria": "Tortoise, asian foreset",
@@ -170,7 +170,7 @@
     {
         "id": 15,
         "nombre": "Pat",
-        "precio": "$7744.70",
+        "precio": 7744.70,
         "descripcion": "Enterprise-wide bandwidth-monitored Graphic Interface",
         "variedad": "Lehemann",
         "categoria": "Pelican, eastern white",
@@ -182,7 +182,7 @@
     {
         "id": 16,
         "nombre": "Kayley",
-        "precio": "$2357.36",
+        "precio": 2357.36,
         "descripcion": "Quality-focused transitional frame",
         "variedad": "De Bernardi",
         "categoria": "Oryx, fringe-eared",
@@ -194,7 +194,7 @@
     {
         "id": 17,
         "nombre": "Keary",
-        "precio": "$8096.18",
+        "precio": 8096.18,
         "descripcion": "Multi-channelled 24/7 encryption",
         "variedad": "Dmtrovic",
         "categoria": "Western lowland gorilla",
@@ -206,7 +206,7 @@
     {
         "id": 18,
         "nombre": "Bambie",
-        "precio": "$605.37",
+        "precio": 605.37,
         "descripcion": "Profound mobile complexity",
         "variedad": "Cuberley",
         "categoria": "Mouse, four-striped grass",
@@ -218,7 +218,7 @@
     {
         "id": 19,
         "nombre": "Reidar",
-        "precio": "$4877.42",
+        "precio": 4877.42,
         "descripcion": "Intuitive bottom-line instruction set",
         "variedad": "Wethered",
         "categoria": "Egret, cattle",
@@ -230,7 +230,7 @@
     {
         "id": 20,
         "nombre": "Tome",
-        "precio": "$2878.74",
+        "precio": 2878.74,
         "descripcion": "Team-oriented actuating Graphical User Interface",
         "variedad": "Lagde",
         "categoria": "Gull, herring",

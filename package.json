@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "ejs": "~2.6.1",
-    "express": "~4.16.1"
+    "express": "~4.16.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.3"
   }
 }
