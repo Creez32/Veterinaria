@@ -6,8 +6,47 @@
   <body>
     <%- include('./partials/header') %> 
 
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+    <div class="banner">
+  
+    </div>
+    <main>
+      <section>
+        <h1>Ofertas</h1>
+        <% productos.forEach(producto => { %>
+          <article>
+            <%- include('./partials/cards',{
+              name : producto.name,
+              price: 2000,
+              edad:5,
+              peso:20,
+              stock:50,
+              description: 'Este tipo de productos es totalmente recomendado en sus mascotas para que usted pueda hacerlas crecer sanas',
+              categoria : 'Perros',
+              variedad: 'Alimento', 
+              color
+            }) %> 
+          </article>
+        <% }) %>
+      </section>
+      <section>
+        <h1>destacados</h1>
+        <% productos.forEach(producto => { %>
+          <article>
+            <%- include('./partials/cards',{
+              name : 'Alimento',
+              price: 2000,
+              edad:5,
+              peso:20,
+              stock:50,
+              description: 'Este tipo de productos es totalmente recomendado en sus mascotas para que usted pueda hacerlas crecer sanas',
+              categoria : 'Perros',
+              variedad: 'Alimento'
+            }) %> 
+          </article>
+        <% }) %>
+      </section>
+    </main>
 
     <%- include('./partials/footer') %>
   </body>

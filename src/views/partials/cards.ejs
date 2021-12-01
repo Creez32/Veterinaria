@@ -1,0 +1,52 @@
+<div class="wrapper">
+    <div class="container">
+      <div class="top" style=<%=`background-image:url(/images/products/1.jpg)`%>></div>
+      <div class="bottom">
+        <div class="left">
+          <div class="details">
+            <h3><%= name %></h3>
+            <p><%= price %></p>
+          </div>
+          <div class="buy"><i class="fas fa-cart-plus"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="inside">
+      <div class="icon"><i class="fas fa-info-circle"></i></div>
+      <div class="contents">
+        <table>
+            <tr>
+                <th>Descripcion</th>
+                </tr>
+                <tr>
+                <td><%= description %></td>
+            </tr>
+            <tr>
+                <th>Edad</th>
+                <th>Peso</th>
+            </tr>
+            <tr>
+                <td><%= edad %></td>
+                <td><%= peso %></td>
+            </tr>
+            
+            <tr>
+                <th>Categoria</th>
+                <th>Variedad</th>
+            </tr>
+            <tr>
+                <td><%= categoria %></td>
+                <td><%= variedad %></td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <th>Color</th>
+            </tr>
+            <tr>
+                <td><%= stock %></td>
+                <td><%= color %></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+</div>

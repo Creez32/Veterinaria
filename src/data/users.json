@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "name": "Cristian",
+        "lastName": "Elias",
+        "email": "cristian@gmail.com",
+        "password": "$2a$10$LZjitt78iv9ovqALSz0Tte5hJWPH9lX.U7N86wxW59r7g7kZOJXYW",
+        "rol": "admin",
+        "avatar": "img-1631406262238.jpeg"
+      }
+]

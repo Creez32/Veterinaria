@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <%- include('./partials/head') %> 
+    <%- include('../partials/head') %> 
     
-<body>
-    <%- include('./partials/header') %> 
+<body class="login">
+    <%- include('../partials/header') %> 
 
     <main>
         <h1>login</h1>
-        <section>
+        <section class="">
             <form action="">
-                
-                    <div>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <input type="text">
-                    </div>
-                
+                <div class="contenedor">
+                    <label for="email">Ingresa tu email</label>
+                    <input type="email" id="email" name="email">
+                    <p class="span text-danger">
+                        <%= locals.errores && errores.email ? errores.email.msg : null %>
+                    </p>
+                </div>
+                <div class="contenedor pass">
+                    <label for="pass">Ingresa tu contraseña<i class="far fa-eye"></i></label>
+                    <input type="password" id="pass" name="pass">
+                    <p class="span text-danger">
+                        <%= locals.errores && errores.pass ? errores.pass.msg : null %>
+                    </p>
+                </div>
+                <div class="contenedor">
+                    <label for="recordar">Recordarme</label>
+                    <input type="checkbox" name="recordar" id="recordar" value="1">
+                </div>
+                <div>
+                    <h3>No estas registrado? Hace click aca</h3>
+                    <h2><a href="/user/register"><i class="fas fa-bomb"></i></a></h2>
+                </div>
+
+                <button type="submit">Ingresar</button>
             </form>
         </section>
     </main>
 
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
       
 </body>
 </html>

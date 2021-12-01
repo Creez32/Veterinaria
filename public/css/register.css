@@ -1,0 +1,35 @@
+.register h1{
+    text-align: center;
+    text-transform: capitalize;
+}
+.register main section{
+    width: 50%;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-image: linear-gradient(-225deg, #CBBACC 0%, #2580B3 100%);
+    padding: 80px;
+    text-align: center;
+}
+.register form .contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.register form input{
+    border-radius: 10px;
+    width: 50%;
+}
+
+.register form button{
+    padding: 10px 15px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid red;
+    background-color: palegreen;
+}
+.register form button:hover{
+    border: 1px solid green;
+    background-color: rgb(127, 247, 127);
+}

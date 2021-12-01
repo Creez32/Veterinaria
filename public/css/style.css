@@ -1,7 +1,10 @@
 @import url('./general.css');
+@import url('./tarjetitas.css');
 @import url('./header.css');
+@import url('./home.css');
 @import url('./productos.css');
 @import url('./footer.css');
 @import url('./detail.css');
-
-
+@import url('./login.css');
+@import url('./register.css');
+@import url('./cards.css');
