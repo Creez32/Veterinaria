@@ -10,9 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+<<<<<<< HEAD
       Varieties.hasMany(models.Products,{
         as : 'varieties',
         foreignKey: 'varietyId'
+=======
+      Varieties.belongsTo(models.Products,{
+        as : 'variety'
+>>>>>>> da12d2582f58db2a67f06465d30a0082f885b127
       })
     }
   };
