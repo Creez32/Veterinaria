@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Colors.belongsTo(models.Products,{
-        as : 'product',
+        as : 'products',
       })
     }
   };
   Colors.init({
     nombre: DataTypes.STRING,
-    productId: DataTypes.INTEGER
+    productsId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Colors',

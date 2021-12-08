@@ -8,38 +8,42 @@
 
 
     <div class="banner">
-  
+      <%- include('./partials/banner') %> 
     </div>
     <main>
       <section>
         <h1>Ofertas</h1>
         <% productos.forEach(producto => { %>
-          <article>
-            <%- include('./partials/cards',{
-              name : producto.name,
-              price: 2000,
-              edad:5,
-              peso:20,
-              stock:50,
-              description: 'Este tipo de productos es totalmente recomendado en sus mascotas para que usted pueda hacerlas crecer sanas',
-              categoria : 'Perros',
-              variedad: 'Alimento', 
-              color
-            }) %> 
-          </article>
+          <a href="/product/detail/<%= producto.id %>">
+            <article>
+              <%- include('./partials/cards',{
+                producto: producto,
+                name: producto.name,
+                price: producto.price,
+                edad: producto.edad,
+                peso:producto.peso,
+                stock:producto.stock,
+                description: producto.description,
+                categoria : 'Perros',
+                variedad: 'Alimento'
+              }) %> 
+            </article>
+          </a>
         <% }) %>
+      
       </section>
       <section>
         <h1>destacados</h1>
         <% productos.forEach(producto => { %>
           <article>
             <%- include('./partials/cards',{
-              name : 'Alimento',
+              producto: producto,
+              name: 'Alimento',
               price: 2000,
-              edad:5,
-              peso:20,
-              stock:50,
-              description: 'Este tipo de productos es totalmente recomendado en sus mascotas para que usted pueda hacerlas crecer sanas',
+              edad: producto.edad,
+              peso:producto.peso,
+              stock:producto.stock,
+              description: producto.description,
               categoria : 'Perros',
               variedad: 'Alimento'
             }) %> 

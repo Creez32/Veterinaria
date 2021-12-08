@@ -2,7 +2,44 @@
 <html lang="en">
     <%- include('../partials/head') %> 
 <body>
-    <%- include('../partials/tarjetitas') %>
+    <%- include('../partials/header') %> 
     <h1>productos</h1>
+    <section>
+        <div class="table-responsive">
+            <table class="table table-dark table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Variedad</th>
+                        <th scope="col">Editar/Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Producto 1</td>
+                        <td>Una Marca</td>
+                        <td> $50999 </td>
+                        <td> Roedores </td>
+                        <td> Contenedores </td>
+                        <td> 
+                          <div class="">
+                            <a href="/admin/edit/1">
+                                <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                            </a>
+                            <form action="/admin/eliminar/1?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+            </table>
+        </div>
+    </section>
 </body>
 </html>

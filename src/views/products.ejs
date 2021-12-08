@@ -14,14 +14,14 @@
                         <a href="/product/detail/<%= producto.id %> ">
                             <article>
                                 <div>
-                                    <img src="/images/<%= products.image[0].file %> " alt="">
+                                    <img src="/images/products/<%=producto.images[0].file%>" alt="">
                                 </div>
                                 <div class="card">
                                     <h3>
-                                        <%= producto.nombre %>
+                                        <%= producto.name %>
                                     </h3>
                                     <span>
-                                        <%= producto.precio %>
+                                        <%= producto.price %>
                                     </span>
                                 </div>
                             </article>

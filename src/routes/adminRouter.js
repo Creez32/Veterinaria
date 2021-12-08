@@ -1,17 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-const {crear,eliminar,listar,editar,store,actualizar} = require('../controllers/adminControllers')
+const upload = require('../middlewares/multerProducts');
+
+const {crear,store,listar,editar,actualizar,eliminar} = require('../controllers/adminControllersDB')
 
 /* GET users listing. */
-router.get('/products',listar);
+router.get('/',listar);
 
-router.get('/products/create',crear)
-router.post('/products',store)
+router.get('/create',crear)
+router.post('/create', upload.array('imagen'),store)
 
-router.get('/products/:id/edit', editar)
-router.put('/products/:id', actualizar)
+router.get('/edit/:id', editar)
+router.put('/edit/:id', actualizar)
 
-router.delete('/products/:id',eliminar)
+router.delete('/eliminar/:id', eliminar)
 
 module.exports = router;

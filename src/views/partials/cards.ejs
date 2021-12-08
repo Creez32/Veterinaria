@@ -1,11 +1,12 @@
 <div class="wrapper">
     <div class="container">
-      <div class="top" style=<%=`background-image:url(/images/products/1.jpg)`%>></div>
+      <div class="top"  style="background-image: url('/images/products/<%=producto.images[0].file%>');">
+      </div>
       <div class="bottom">
         <div class="left">
           <div class="details">
             <h3><%= name %></h3>
-            <p><%= price %></p>
+            <p>$ <%= price %></p>
           </div>
           <div class="buy"><i class="fas fa-cart-plus"></i></div>
         </div>
@@ -35,8 +36,8 @@
                 <th>Variedad</th>
             </tr>
             <tr>
-                <td><%= categoria %></td>
-                <td><%= variedad %></td>
+                <td><%=producto.categoria%></td>
+                <td><%=producto.varieties%></td>
             </tr>
             <tr>
                 <th>Stock</th>
@@ -44,7 +45,7 @@
             </tr>
             <tr>
                 <td><%= stock %></td>
-                <td><%= color %></td>
+                <td></td>
             </tr>
         </table>
       </div>

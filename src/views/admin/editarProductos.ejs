@@ -7,6 +7,88 @@
     <title>editar</title>
 </head>
 <body>
-    <h1>productos</h1>
+    <h1>Editar un producto</h1>
+    <form action="/admin/edit/1?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="name">Nombre del producto</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="brand">Marca del Producto</label>
+            <input type="text" name="brand" id="brand">
+        </div>
+        <div>
+            <label for="price">Precio del producto</label>
+            <input type="number" name="price" for="price">
+        </div>
+        <div>
+            <label for="discount">Descuento del producto</label>
+            <input type="number" name="discount" id="discount">
+        </div>
+        <div>
+            <label for="edad">Edad para la que se recomienda este producto</label>
+            <input type="number" name="edad" id="edad">
+        </div>
+        <div>
+            <label for="peso">Peso de la mascota</label>
+            <input type="number" name="peso" id="peso">
+        </div>
+        <div>
+            <label for="stock">Stock con el que cuenta el producto</label>
+            <input type="text" name="stock" id="stock">
+        </div>
+        <div>
+            <select name="categoria" id="categoria">
+                <option value="" selected hidden >Selecciona una categoria</option>
+                <% categories.forEach(categoria => { %>
+                    <option value=<%=categoria.id%> ><%= categoria.name %></option>
+                <% }) %>
+                
+            </select>
+        </div>
+        <div>
+            <select name="variedad" id="variedad">
+                <option value="" selected hidden >Selecciona una variedad</option>
+                <% varieties.forEach(variedad => { %>
+                    <option value=<%=variedad.id %> ><%= variedad.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripcion del producto"></textarea>
+        </div>
+        <section class="img-product">
+            <div>
+                <label class="selectImg" for="product-img"><div class="imgHover"><p class="imgHover__p">selecionar Imagen</p></div><img id="img-preview" class="img-product__img" src="/images/productos/default-image.jpg" alt=""></label>
+                <div class="form-admin__box inactivo">
+                    <input class="form-admin__input form-control" id="product-img" type="file" name="fileImage" placeholder="Imagen del Producto" accept="image/*" multiple>
+                </div>
+            </div>
+            <div class="container-sub-img">
+                <div class="sub-img-product__container">
+                    <label class="selectImg" for="product-sub-img-1"><div class="imgHover"><p class="imgHover__p">selecionar Imagen</p></div><img id="sub-img-preview-1" class="sub-img-product__img" src="/images/productos/default-image.jpg" alt=""></label>
+                    <div class="form_desciption__box inactivo">
+                        <input class="form-admin__input" id="product-sub-img-1" type="file" name="fileImage" placeholder="Imagen del Producto">
+                    </div>
+                </div>
+                <div class="sub-img-product__container">
+                    <label class="selectImg" for="product-sub-img-2"><div class="imgHover"><p class="imgHover__p">selecionar Imagen</p></div><img id="sub-img-preview-2" class="sub-img-product__img" src="/images/productos/default-image.jpg" alt=""></label>
+                    <div class="form_desciption__box inactivo">
+                        <input class="form-admin__input" id="product-sub-img-2" type="file" name="fileImage" placeholder="Imagen del Producto">
+                    </div>
+                </div>
+                <div class="sub-img-product__container">
+                    <label class="selectImg" for="product-sub-img-3"><div class="imgHover"><p class="imgHover__p">selecionar Imagen</p></div><img id="sub-img-preview-3" class="sub-img-product__img" src="/images/productos/default-image.jpg" alt=""></label>
+                    <div class="form_desciption__box inactivo">
+                        <input class="form-admin__input" id="product-sub-img-3" type="file" name="fileImage" placeholder="Imagen del Producto">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="create-button">
+            <button class="create-button__button" type="submit">Crear producto</button>
+        </div>
+    </form>
+    <script src="/JavaScript/images.js"></script>
 </body>
 </html>
