@@ -5,6 +5,11 @@ let db = require('../database/models')
 
 module.exports = {
     listar: (req,res) => {
+        db.Products.findAll({
+            include: [{
+                all: true
+            }]
+        })
         return res.render('admin/listarProductos')
     },
     crear : (req,res) => {
@@ -25,20 +30,20 @@ module.exports = {
     store: (req,res) => {
         let errors = validationResult(req)
         if (errors.isEmpty()) {
-            const {name,brand,price,discount,edad,peso,stock,categoria,variedad,description} = req.body
+                const {name,brand,price,discount,edad,peso,stock,categoria,variedad,description} = req.body
 
-            db.Products.create({
-                name,
-                brand,
-                price: +price,
-                discount: +discount,
-                edad: +edad,
-                peso : +peso,
-                stock: +stock,
-                categoria: +categoria,
-                variedad: +variedad,
-                description,
-            })
+                db.Products.create({
+                    name,
+                    brand: brand,
+                    price: +price,
+                    discount: +discount,
+                    edad: +edad,
+                    peso : +peso,
+                    stock: +stock,
+                    categoria: +categoria,
+                    variedad: +variedad,
+                    description,
+                })
             .then( product => {
                 if(req.files.length != 0){
                     let images = req.files.map(image => {
@@ -96,29 +101,61 @@ module.exports = {
         .catch((error) => res.send(error));
     },
     actualizar : (req,res) => {
-        const {nombre,precio,descripcion,variedad,categoria,edad,cantidadPeso,stock} = req.body
 
+        const {name,brand,price,discount,edad,peso,stock,categoria,variedad,description} = req.body
 
-        productos.forEach(producto => {
-            if(producto.id === +req.params.id){
-                producto.nombre = nombre;
-                producto.precio = +precio;
-                producto.descripcion = descripcion;
-                producto.variedad = variedad;
-                producto.categoria = categoria;
-                producto.edad = +edad;
-                producto.cantidadPeso = +cantidadPeso;
-                producto.imagen = req.file ? req.file.filename : "undefinedProduct.png",
-                producto.stock = +stock;
+        db.Products.update({
+            name,
+            brand: brand,
+            price: +price,
+            discount: +discount,
+            edad: +edad,
+            peso : +peso,
+            stock: +stock,
+            categoria: +categoria,
+            variedad: +variedad,
+            description,
+        })
+        .then( product => {
+            if(req.files.length != 0){
+                let images = req.files.map(image => {
+                    let item = {
+                        file: image.filename,
+                        productsId : product.id
+                    }
+                    return item
+                })
+                db.Images.bulkCreate(images,{validate:true})
+                .then( () => {
+                    return res.redirect('admin/listarProductos')
+                })
             }
-        });
-        guardar(productos)
-        return res.redirect('admin/listarProductos')
+        })
+        .catch((error) => res.send(error));
     },
     eliminar : (req,res) => {
-        let productosModificados = productos.filter(producto => producto.id !== +req.params.id)
-        guardar(productosModificados)
-        return res.redirect('admin/listarProductos')
+        db.Product.findByPk(req.params.id, {
+            include: [{
+                all: true
+            }],
+        })
+        .then(product => {
+            product.images.forEach(item => {
+                if (fs.existsSync(path.join(__dirname, '../../public/images/products', item.file))) {
+                    fs.unlinkSync(path.join(__dirname, '../../public/images/products', item.file))
+                }
+            });
+            db.Product.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(() => {
+                return res.redirect('/admin')
+            })
+            
+        })  
+        .catch(error => console.log(error))
     },
         
 }

@@ -3,11 +3,9 @@ let users = [
   {
     name: "Cristian",
     lastName: "Elias",
-    phone: "54261048911",
+    phone: "+54261048911",
     password:"$2a$10$.HdNoojy7hI2SOdcRjo1qOUXMrk4.GzH6Ct1lDJjcLCGX3Hzt2Jdq",
     email: "cristian@gmail.com",
-    addressId: 1,
-    imageId: 1,
     rolId: 1,
     createdAt: new Date,
     updatedAt: new Date

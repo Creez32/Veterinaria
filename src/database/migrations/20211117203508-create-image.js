@@ -9,9 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       file: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       productsId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: {

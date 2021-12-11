@@ -40,6 +40,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       categoryId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references : {
           model : {
@@ -49,6 +50,7 @@ module.exports = {
         },
       },
       varietyId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references : {
           model : {

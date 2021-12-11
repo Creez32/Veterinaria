@@ -16,8 +16,8 @@ let productosNuevos = productos.map((producto) => {
     edad:producto.edad,
     peso:producto.cantidadPeso,
     stock:producto.stock,
-    categoryId:random(1,6),
-    varietyId:random(1,5),
+    categoryId:random(1,8),
+    varietyId:random(1,8),
     createdAt: new Date,
     updatedAt: new Date
   }

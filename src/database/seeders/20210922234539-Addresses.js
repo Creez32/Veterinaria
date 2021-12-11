@@ -1,13 +1,14 @@
 'use strict';
 let addresses = [
   {
-    direction:"Mi casa",
-    number :"123",
-    apartament:"1",
+    direction:"A del Valle",
+    number :"865",
+    apartament:"",
     country : "Argentina",
-    city: "Godoy Cruz",
-    location : "Mendoza",
+    city: "Mendoza",
+    location : "Godoy Cruz",
     zipCode : "5501",
+    userId: 1,
     createdAt: new Date,
     updatedAt: new Date
   }

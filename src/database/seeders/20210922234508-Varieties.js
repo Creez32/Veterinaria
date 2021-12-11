@@ -1,8 +1,9 @@
 'use strict';
 let variety = ['Alimento','Medicina','Juguetes','Correas','Vacunas','Contenedores','Accesorios','Otros']
+
  let variedad = variety.map(product =>{ 
   let coso = {
-    name: product.variedad,
+    name: product,
     createdAt: new Date,
     updatedAt: new Date
   }

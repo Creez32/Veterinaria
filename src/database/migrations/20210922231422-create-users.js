@@ -10,12 +10,14 @@ module.exports = {
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(50)
       },
       lastName: {
-        type: Sequelize.STRING(100)
+        allowNull: false,
+        type: Sequelize.STRING(50)
       },
       phone: {
+        allowNull: false,
         type: Sequelize.STRING(20)
       },
       password: {
@@ -26,25 +28,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(100)
       },
-      addressId: {
-        type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : "Addresses",
-          },
-          key : "id"
-        }
-      },
-      imageId: {
-        type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : "Images",
-          },
-          key : "id"
-        }
-      },
       rolId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references : {
           model : {

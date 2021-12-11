@@ -11,35 +11,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Products.belongsTo(models.Categories,{
-<<<<<<< HEAD
-        as : 'category'
+        as : 'category',
+        foreignKey: 'categoryId'
       })
       Products.belongsTo(models.Varieties,{
-        as : 'variety'
+        as : 'variety',
+        foreignKey: 'varietyId'
       })
       Products.hasMany(models.Images, {
-        as : 'images',
-        foreignKey : "productsId"
+        as : 'images'
       })
       Products.hasMany(models.Colors, {
-        as : 'colors',
-        foreignKey: 'productsId'
-=======
-        as : 'categories'
-      }),
-      Products.belongsTo(models.Varieties,{
-        as : 'variety'
-      }),
-      Products.hasMany(models.Images,{
-        as : 'img',
-        foreignKey: 'imageId'
->>>>>>> da12d2582f58db2a67f06465d30a0082f885b127
+        as : 'colors'
       })
     }
   };
   Products.init({
     name: DataTypes.STRING,
-<<<<<<< HEAD
     brand: DataTypes.STRING,
     description: DataTypes.STRING,
     price: DataTypes.DECIMAL,
@@ -49,14 +37,6 @@ module.exports = (sequelize, DataTypes) => {
     stock: DataTypes.INTEGER,
     categoryId: DataTypes.INTEGER,
     varietyId: DataTypes.INTEGER
-=======
-    price: DataTypes.DECIMAL,
-    description: DataTypes.STRING,
-    stock: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER,
-    varietyId: DataTypes.INTEGER,
-    imageId: DataTypes.INTEGER
->>>>>>> da12d2582f58db2a67f06465d30a0082f885b127
   }, {
     sequelize,
     modelName: 'Products',
