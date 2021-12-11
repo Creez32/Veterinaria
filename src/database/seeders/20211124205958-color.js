@@ -10,7 +10,7 @@ let colors = productos.map((producto,index) => {
   }
   let nuevo = {
     nombre : colores[random(0,8)],
-    productId: index + 1,
+    productsId: index + 1,
     createdAt: new Date,
     updatedAt: new Date
   }
@@ -22,7 +22,7 @@ let colors1 = productos.map((producto,index) => {
   }
   let nuevo = {
     nombre : colores[random(0,8)],
-    productId: index + 1,
+    productsId: index + 1,
     createdAt: new Date,
     updatedAt: new Date
   }
@@ -34,7 +34,7 @@ let colors2 = productos.map((producto,index) => {
   }
   let nuevo = {
     nombre : colores[random(0,8)],
-    productId: index + 1,
+    productsId: index + 1,
     createdAt: new Date,
     updatedAt: new Date
   }
