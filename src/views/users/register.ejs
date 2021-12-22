@@ -46,6 +46,13 @@
                         <%= locals.errores && errores.pass2 ? errores.pass2.msg : null %>
                     </p>
                 </div>
+                <div class="contenedor">
+                    <label for="image" class='btn btn-primary'>Agrega una imagen</label>
+                    <input type="file" id="image" name="image" class="d-none">
+                    <p class="span text-danger">
+                        <%= locals.errores && errores.image ? errores.image.msg : null %>
+                    </p>
+                </div>
                 <div>
                     <h3>Ya estas registrado? hace click aca</h3>
                     <h2><a href="/user/login"><i class="fas fa-bomb"></i></a></h2>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+    <body class="productos">
+        
+        <%- include('./partials/header') %>
+
+            <main>
+                <h1>Resultado de la busqueda</h1>
+
+                <h2 id="total-productos">Total de productos encontrados: <%= productos.length %></h2>
+
+                <% if (!productos.length) { %>
+
+                    <section>
+                        <div class="image">
+                            <img src="https://j.gifs.com/ygdY27.gif" alt="">
+                        </div>
+                        <article>
+                            <h2>No se encontraron resultados!</h2>
+                        </article>
+                    </section>
+
+                <% }else{ %>
+
+                <section>
+                    <% productos.forEach(producto => { %>
+                        <a href="/product/detail/<%= producto.id %>">
+                            <%- include('./partials/cards',{
+                              producto: producto,
+                              name: producto.name,
+                              price: producto.price,
+                              edad: producto.edad,
+                              peso:producto.peso,
+                              stock:producto.stock,
+                              description: producto.description,
+                              categoria : producto.category.name,
+                              variedad: producto.variety.name
+                            }) %> 
+                        </a>
+                      <% }) %>
+                </section>
+
+                <% } %>
+            </main>
+
+            <%- include('./partials/footer') %>
+    </body>
+</html>

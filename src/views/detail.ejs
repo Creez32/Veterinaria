@@ -7,14 +7,24 @@
     <%- include('./partials/header') %> 
 
     <main>
-        <h1><%= producto.nombre %> </h1>
+        <h1><%= producto.name %> </h1>
         <section>
             
             <article>
                 <div class="inicio">
-                    <img src="/images/<%= producto.imagen %> " alt="">
+                    <section class="imagenes">
+                        <div class="extras">
+                            <% for( let i = 1; i < producto.images.length; i++ ) { %>
+                                <div class="extras"  style="background-image: url('/images/products/<%=producto.images[i].file%>');"></div>
+                            <% } %>
+                        </div>
+                        <div class="principal">
+                            <img src="/images/products/<%= producto.images[0].file %> " alt="">
+                        </div>
+                        
+                    </section>
                     <div class="content">
-                        <span><%= producto.precio %> </span>
+                        <span><%= producto.price %> </span>
                         <div class="cantidad">
                             <button> + </button>
                             <input type="number">
@@ -23,18 +33,12 @@
                         <div class="color">
                             <h3>Color</h3>
                             <div class='supercolor'>
+                            <% producto.colors.forEach(color => { %>
                                 <div>
-                                    <input type="radio" name="color" id="red" class="red">
-                                    <label for="red" class="red">Rojo</label>
+                                    <input type="radio" name="color" id=<%= color.nombre %> class=<%= color.nombre%>>
+                                    <label for=<%= color.nombre %> class=<%= color.nombre %>><%= color.nombre %></label>
                                 </div>
-                                <div>
-                                    <input type="radio" name="color" id="azul" class="azul">
-                                    <label for="azul" class="azul">Azul</label>
-                                </div>
-                                <div>
-                                    <input type="radio" name="color" id="verde" class="verde">
-                                    <label for="verde" class="verde">Verde</label>
-                                </div>
+                            <% }) %>
                             </div>
                         </div>
                         <div class="botones">
@@ -45,7 +49,7 @@
                     </div>
                 </div>
                 <div class="descripcion">
-                    <p><%= producto.descripcion %></p>
+                    <p><%= producto.description %></p>
                 </div>
                 <div class="table">
                     <ul>
@@ -54,8 +58,8 @@
                         <li>Edad</li>
                     </ul>
                     <ul>
-                        <li><%= producto.variedad %></li>
-                        <li><%= producto.categoria %></li>
+                        <li><%= producto.variety.name %></li>
+                        <li><%= producto.category.name %></li>
                         <li><%= producto.edad %></li>
                     </ul>
                 </div>

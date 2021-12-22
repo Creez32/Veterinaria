@@ -3,7 +3,7 @@ const path = require('path');
 
 /* Bases de datos */
 let db = require('../database/models')
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 
 module.exports = {
     index : (req, res) => {
@@ -13,8 +13,11 @@ module.exports = {
             ]
         })
         .then(productos => {
+
+            
             res.render('index', {
-                productos
+                productos,
+                defaultImage : 'undefinedProduct.png'
             });
         })
         .catch((error) => res.send(error))
@@ -22,35 +25,23 @@ module.exports = {
     search: (req, res) => {
 
         let busqueda = req.query.busqueda.toLowerCase()
-        db.Product.findAll({
+        let categories = db.Categories.findAll()
+        let productos = db.Products.findAll({
             include: [{
                 all: true
             }],
             where: {
                 [Op.or]: [
-                    {
-                        name: {
-                            [Op.substring]: busqueda
-                        }
-                    },
-                    {
-                        description: {
-                            [Op.substring]: busqueda
-                        }
-                    },
-                    {
-                        brand: {
-                            [Op.substring]: busqueda
-                        }
-                    }
-                ]
+                    { name: { [Op.substring]: `%${busqueda}%` } },
+                    { brand: { [Op.substring]: `%${busqueda}%` } },
+                ],
             }
         })
-        .then(celulares => {
-            return res.render('admin/resultsAdmin', {
-                celulares,
-                busqueda,
-                toThousand
+        Promise.all([categories,productos])
+        .then(([categories,productos]) => {
+            return res.render('search', {
+                productos,
+                categories
             })
         })
         .catch(error => console.log(error))

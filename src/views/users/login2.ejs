@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('../partials/head') %> 
+    
+<body class="login">
+    <%- include('../partials/header') %> 
+    
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Login</h3>
+
+        <div class="contenedor">
+            <label for="email">Ingresa tu email</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@veterinaria.com">
+            <p class="span text-danger">
+                <%= locals.errores && errores.email ? errores.email.msg : null %>
+            </p>
+        </div>
+
+        <div class="contenedor pass">
+            <label for="pass">Ingresa tu contraseña<i class="far fa-eye"></i></label>
+            <input type="password" id="pass" name="pass" placeholder="*******">
+            <p class="span text-danger">
+                <%= locals.errores && errores.pass ? errores.pass.msg : null %>
+            </p>
+        </div>
+
+        <button>Log In</button>
+        <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div>
+    </form>
+</body>
+</html>

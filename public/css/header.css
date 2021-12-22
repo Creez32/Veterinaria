@@ -1,30 +1,71 @@
-header{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-header .logo {
-    width: 100px;
-    height: 100px;
-}
-header .logo img{
-    width: 100%;
+#blurry-filter {
+  width: 100%;
+  height: 9rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100' height='100' style='filter:url(%23f)' opacity='.2'/%3E%3C/svg%3E");
+  mask: linear-gradient(black 7rem, transparent);
+  -webkit-mask: linear-gradient(black 7rem, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
+  touch-action: none;
 }
 
-nav ul{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
-li{
-    display: flex;
-    align-items: center;
+
+header {
+  width: 100%;
+  height: 8rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
-nav ul li a{
-    background-color: rgb(138, 138, 138);
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: 1px solid grey;
-    border-radius: 10px;
+
+header > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
+
+#title {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+#title .name {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  mix-blend-mode: difference;
+}
+
+#reference {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#reference ul{
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+  align-items: center;
+}
+#reference ul li{
+  margin-right: 35px;
+}
+#reference > a {
+  color: #444;
+}
+#reference > a + a {
+  margin-left: 1rem;
+}
+

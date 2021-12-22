@@ -1,94 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>editar</title>
-</head>
+    <%- include('../partials/head') %> 
 <body>
-    <h1>Editar un producto</h1>
-    <form action="/admin/edit/1?_method=PUT" method="POST" enctype="multipart/form-data">
-        <div>
-            <label for="name">Nombre del producto</label>
-            <input type="text" name="name" id="name">
-        </div>
-        <div>
-            <label for="brand">Marca del Producto</label>
-            <input type="text" name="brand" id="brand">
-        </div>
-        <div>
-            <label for="price">Precio del producto</label>
-            <input type="number" name="price" for="price">
-        </div>
-        <div>
-            <label for="discount">Descuento del producto</label>
-            <input type="number" name="discount" id="discount">
-        </div>
-        <div>
-            <label for="edad">Edad para la que se recomienda este producto</label>
-            <input type="number" name="edad" id="edad">
-        </div>
-        <div>
-            <label for="peso">Peso de la mascota</label>
-            <input type="number" name="peso" id="peso">
-        </div>
-        <div>
-            <label for="stock">Stock con el que cuenta el producto</label>
-            <input type="text" name="stock" id="stock">
-        </div>
-        <div>
-            <select name="categoria" id="categoria">
-                <option value="" selected hidden >Selecciona una categoria</option>
-                <% categories.forEach(categoria => { %>
-                    <option value=<%=categoria.id%> ><%= categoria.name %></option>
-                <% }) %>
-                
-            </select>
-        </div>
-        <div>
-            <select name="variedad" id="variedad">
-                <option value="" selected hidden >Selecciona una variedad</option>
-                <% varieties.forEach(variedad => { %>
-                    <option value=<%=variedad.id %> ><%= variedad.name %></option>
-                <% }) %>
-            </select>
-        </div>
-        <div>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripcion del producto"></textarea>
-        </div>
-        <section class="img-product">
-            <div>
-                <label class="selectImg" for="product-img"><div class="imgHover"><p class="imgHover__p">selecionar Imagen</p></div><img id="img-preview" class="img-product__img" src="/images/productos/default-image.jpg" alt=""></label>
-                <div class="form-admin__box inactivo">
-                    <input class="form-admin__input form-control" id="product-img" type="file" name="fileImage" placeholder="Imagen del Producto" accept="image/*" multiple>
+    <main class="create">
+    <%- include('../partials/header') %>
+
+        <!-- Titulo -->
+        <h1 class="text-center pt-5 pb-5">Editando <%= producto.name %> </h1>
+
+        <!-- Comienzo del Formulario -->
+        <form action="/admin/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+            <!-- Contenedor de imagenes y Principales -->
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    
+                    <!-- Principales -->
+                    <div class="col col-lg-4 col-md-12 col-sm-12">
+                        <div class="form-floating mb-3"> 
+                            <input type="text" class="form-control" name="name" placeholder="Nombre del producto" id="name" placeholder="name@example.com" value=<%= producto.name %> >
+                            <label for="name">Nombre del producto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="brand" placeholder="Marca del Producto" id="brand" value=<%= producto.brand %> >
+                            <label class="form-label" for="brand">Marca del Producto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="price" placeholder="Precio del producto" id="price" value=<%= producto.price %> >
+                            <label class="form-label" for="price">Precio del producto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="discount" placeholder="Descuento del producto" id="discount" value=<%= producto.discount %> >
+                            <label class="form-label" for="discount">Descuento del producto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="edad" placeholder="Edad para utilizar este producto" id="edad" value=<%= producto.edad %> >
+                            <label class="form-label" for="edad">Edad para utilizar este producto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="peso" placeholder="Peso de la mascota" id="peso" value=<%= producto.peso %> >
+                            <label class="form-label" for="peso">Peso de la mascota</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="stock" placeholder="Stock con el que cuenta el producto" id="stock" value=<%= producto.stock %> >
+                            <label class="form-label" for="stock">Stock con el que cuenta el producto</label>
+                        </div>
+                    </div>
+        
+                    <!-- Imagenes!  -->
+                    
+                    <div class="col col-lg-7 col-md-12 col-sm-12">
+                        
+                        <section class="img-product">
+
+                            <div class="container">
+                                <div class="row">
+
+                                    <!-- Imagen 1 -->
+
+                                    <div class="col col-5">
+                                        <label class="selectImg" for="product-img">
+                                            <img id="img-preview" class="img-fluid img-thumbnail imagen-height rounded" src="/images/products/<%= producto.images[0].file ? producto.images[0].file : 'undefinedProduct.png'%>" alt="">
+                                            <div class="imgHover">
+                                                <p class="text-center">Selecionar Imagen 1</p>
+                                            </div>
+                                        </label>
+                                        <div class="form-admin__box inactivo">
+                                            <input class="d-none" id="product-img" type="file" name="imagen" placeholder="Imagen del Producto" accept="image/*">
+                                        </div>
+                                    </div>
+
+                                    <!-- Imagen 2 -->
+
+                                    <div class="col col-5">
+                                        <label class="selectImg" for="product-sub-img-1">
+                                            <img id="sub-img-preview-1" class="img-fluid img-thumbnail  imagen-height rounded" src="/images/products/<%= producto.images[1] ? producto.images[1].file : 'undefinedProduct.png'%>" alt="" >
+                                            <div class="imgHover">
+                                                <p class="text-center">Selecionar Imagen 2</p>
+                                            </div>
+                                        </label>
+                                        <div class="form_desciption__box inactivo">
+                                            <input class="d-none" id="product-sub-img-1" type="file" name="imagen2" placeholder="Imagen del Producto" accept="image/*">
+                                        </div>
+                                    </div>
+
+                                    <!-- Imagen 3 -->
+
+                                    <div class="col col-5">
+                                        <label class="selectImg" for="product-sub-img-2">
+                                            <img id="sub-img-preview-2" class="img-fluid img-thumbnail imagen-height rounded" src="/images/products/<%= producto.images[2] ? producto.images[2].file : 'undefinedProduct.png' %>" height="auto" alt="" >
+                                            <div class="imgHover">
+                                                <p class="text-center">Selecionar Imagen 3</p>
+                                            </div>
+                                        </label>
+                                        <div class="form_desciption__box inactivo">
+                                            <input class="d-none " id="product-sub-img-2" type="file" name="imagen3" placeholder="Imagen del Producto" accept="image/*">
+                                        </div>
+                                    </div>
+
+                                    <!-- Imagen 4 -->
+
+                                    <div class="col col-5">
+                                        <label class="selectImg" for="product-sub-img-3">
+                                            <img id="sub-img-preview-3" class="img-fluid img-thumbnail imagen-height rounded" src="/images/products/<%= producto.images[3] ? producto.images[3].file : 'undefinedProduct.png'  %>" alt="" >
+                                            <div class="imgHover">
+                                                <p class="text-center">Selecionar Imagen 4</p>
+                                            </div>
+                                        </label>
+                                        <div class="form_desciption__box inactivo">
+                                            <input class="d-none" id="product-sub-img-3" type="file" name="imagen4" placeholder="Imagen del Producto" accept="image/*">
+                                        </div>
+                                    </div>
+
+                                    <!-- Columnas -->
+
+                                </div>
+                            </div>
+
+                        </section>
+                    </div>
+
+                    <!-- Fin del contenido principal -->
+
                 </div>
             </div>
-            <div class="container-sub-img">
-                <div class="sub-img-product__container">
-                    <label class="selectImg" for="product-sub-img-1"><div class="imgHover"><p class="imgHover__p">selecionar Imagen</p></div><img id="sub-img-preview-1" class="sub-img-product__img" src="/images/productos/default-image.jpg" alt=""></label>
-                    <div class="form_desciption__box inactivo">
-                        <input class="form-admin__input" id="product-sub-img-1" type="file" name="fileImage" placeholder="Imagen del Producto">
+            
+            <div class="container">
+                <div class="row">
+
+                <!-- Colores  -->
+            
+                    <h3 class="text-center">Colores</h3>
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='rojo' id="rojo" class="btn-check" 
+                                
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'rojo' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+                                
+                                > 
+                                <label for="rojo" class="btn btn-outline-danger waves-effect">Rojo</label>
+                            </div>
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='azul' id="azul" class="btn-check"
+                                
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'azul' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+
+                                >
+                                <label for="azul" class="btn btn-outline-primary waves-effect">Azul</label>
+                            </div>
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='verde' id="verde" class="btn-check"
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'verde' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+                                >
+                                <label for="verde" class="btn btn-outline-success waves-effect">Verde</label>
+                            </div>
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='amarillo' id="amarillo" class="btn-check"
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'amarillo' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+                                >
+                                <label for="amarillo" class="btn btn-outline-warning waves-effect">Amarillo</label>
+                            </div>
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='blanco' id="blanco" class="btn-check"
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'blanco' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+                                >
+                                <label for="blanco" class="btn btn-outline-secondary waves-effect">Blanco</label>
+                            </div>
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='negro' id="negro" class="btn-check"
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'negro' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+                                >
+                                <label for="negro" class="btn btn-outline-dark waves-effect">Negro</label>
+                            </div>
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='naranja' id="naranja" class="btn-check orange"
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'naranja' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+                                >
+                                <label for="naranja" class="btn btn-outline-orange">Naranja</label>
+                            </div>
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='rosa' id="rosa" class="btn-check pink"
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'rosa' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+                                >
+                                <label for="rosa" class="btn btn-outline-pink">Rosa</label>
+                            </div>
+                            <div class="col col-md-auto">
+                                <input type="checkbox" name="color" value='marron' id="marron" class="btn-check brown"
+                                <% producto.colors.forEach(color => { %>
+
+                                    <%= color.nombre == 'marron' ? 'checked' : null %>
+                                        
+                                <% }) %> 
+                                >
+                                <label for="marron" class="btn btn-outline-brown">Marron</label>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="sub-img-product__container">
-                    <label class="selectImg" for="product-sub-img-2"><div class="imgHover"><p class="imgHover__p">selecionar Imagen</p></div><img id="sub-img-preview-2" class="sub-img-product__img" src="/images/productos/default-image.jpg" alt=""></label>
-                    <div class="form_desciption__box inactivo">
-                        <input class="form-admin__input" id="product-sub-img-2" type="file" name="fileImage" placeholder="Imagen del Producto">
+            
+        
+                    <!-- Selects  -->
+                    <div class="container m-3" >
+                        <div class="row justify-content-around align-items-center">
+                            <div class="col col-4">
+                                <select name="categoria" id="categoria" class="form-select">
+                                    <option value=<%= producto.category.id %> selected hidden ><%= producto.category.name %></option>
+                                    <% categories.forEach(categoria => { %>
+                                        <option value=<%=categoria.id%> ><%= categoria.name %></option>
+                                    <% }) %>
+                                    
+                                </select>
+                            </div>
+                    
+                            <div class="col col-4">
+                                <select name="variedad" id="variedad" class="form-select">
+                                    <option value=<%= producto.variety.id %> selected hidden ><%= producto.variety.name %></option>
+                                    <% varieties.forEach(variedad => { %>
+                                        <option value=<%=variedad.id %> ><%= variedad.name %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="sub-img-product__container">
-                    <label class="selectImg" for="product-sub-img-3"><div class="imgHover"><p class="imgHover__p">selecionar Imagen</p></div><img id="sub-img-preview-3" class="sub-img-product__img" src="/images/productos/default-image.jpg" alt=""></label>
-                    <div class="form_desciption__box inactivo">
-                        <input class="form-admin__input" id="product-sub-img-3" type="file" name="fileImage" placeholder="Imagen del Producto">
+
+
+                    <div class="container m-3" >
+                        <div class="row">
+                            <div class="col col-12">
+                                <div class="form-floating"> 
+                                    <textarea name="description" id="description" cols="300" rows="300" class="form-control" placeholder="Leave a comment here" style="resize: none;"><%= producto.description %></textarea>
+                                    <label for="description">Descripcion del producto</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
             </div>
-        </section>
-        <div class="create-button">
-            <button class="create-button__button" type="submit">Crear producto</button>
-        </div>
-    </form>
+
+            <!-- Button -->
+
+            <div class="create-button text-center mt-5 pb-5">
+                <button class="btn btn-primary" type="submit">Editar producto</button>
+            </div>
+        </form>
+    </main>
+    <%- include('../partials/footer') %> 
     <script src="/JavaScript/images.js"></script>
 </body>
 </html>

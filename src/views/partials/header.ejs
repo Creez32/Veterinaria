@@ -1,17 +1,33 @@
+<div id="blurry-filter"></div>
 <header>
-    <a href='/'><div class="logo">
-        <img src="/images/products/logo.png" alt="">
-    </div></a>
-    <nav>
-        <ul>
-            <li><a href="/product">products</a></li>
-        </ul>
-    </nav>
-    <nav>
-        <ul>
-            <li><a href="/admin">Agregar</a></li>
-            <li><a href="/user/login">Login</a></li>
-            <li><a href="/user/register">Register</a></li>
-        </ul>
-    </nav>
+  <div>
+    <article id="title">
+      <a href="/">
+        <img src="/images/products/logo.png" alt="" height="128px">
+      </a>
+      <a href="/">
+        <p class="name">Veterinaria</p>
+      </a>
+      
+    </article>
+    <form class="d-flex" action="/search" method="GET">
+      <input class="form-control me-2" name="busqueda" type="busqueda" placeholder="Buscar productos" aria-label="busqueda">
+      <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
+    <article id="reference">
+      <ul>
+        <a href="/admin"><li>Admin</li></a>
+          <a href="/product"><li>Products</li></a>
+      </ul>
+      
+      <ul>
+        <% if (typeof user == 'undefined') { %>
+          <li><a href="/user/login"><i class="far fa-user-circle"></i></a></li>
+          <% } else { %>
+          <li><a href="/user/login"><img src="/images/Users/<%= user.img %>" class="avatar-header" alt=""></a></li>
+          <% } %>
+          <li><a href="/products/cart"><i class="fas fa-cart-plus"></i></a></li>
+      </ul>
+    </article>
+  </div>
 </header>

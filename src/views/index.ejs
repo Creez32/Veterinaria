@@ -3,16 +3,26 @@
 
   <%- include('./partials/head') %> 
   
-  <body>
+  <body class="home">
+
     <%- include('./partials/header') %> 
 
-
-    <div class="banner">
+    <!-- <div class="banner">
       <%- include('./partials/banner') %> 
+    </div> -->
+
+    <!-- Extra -->
+
+    <div class="sample-header">
+      <div class="sample-header-section">
+        <h1>Scroll down to see the parallax effect</h1>
+        <h2>Background landcape scrolls with its own depth </h2>
+      </div>
     </div>
+    
     <main>
       <section>
-        <h1>Ofertas</h1>
+        <h1>Ofertas</h1>  
         <% productos.forEach(producto => { %>
           <a href="/product/detail/<%= producto.id %>">
             <article>
@@ -24,8 +34,8 @@
                 peso:producto.peso,
                 stock:producto.stock,
                 description: producto.description,
-                categoria : 'Perros',
-                variedad: 'Alimento'
+                categoria : producto.category.name,
+                variedad: producto.variety.name
               }) %> 
             </article>
           </a>
@@ -38,20 +48,19 @@
           <article>
             <%- include('./partials/cards',{
               producto: producto,
-              name: 'Alimento',
-              price: 2000,
+              name: producto.name,
+              price: producto.price,
               edad: producto.edad,
               peso:producto.peso,
               stock:producto.stock,
               description: producto.description,
-              categoria : 'Perros',
-              variedad: 'Alimento'
+              categoria : producto.category.name,
+              variedad: producto.variety.name
             }) %> 
           </article>
         <% }) %>
       </section>
     </main>
-
     <%- include('./partials/footer') %>
   </body>
 </html>

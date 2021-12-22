@@ -9,28 +9,36 @@
 
             <main>
                 <h1>Productos</h1>
-                <section>
-                    <% productos.forEach(producto=> { %>
-                        <a href="/product/detail/<%= producto.id %> ">
-                            <article>
-                                <div>
-                                    <img src="/images/products/<%=producto.images[0].file%>" alt="">
-                                </div>
-                                <div class="card">
-                                    <h3>
-                                        <%= producto.name %>
-                                    </h3>
-                                    <span>
-                                        <%= producto.price %>
-                                    </span>
-                                </div>
-                            </article>
-                        </a>
-                        <% }) %>
+                <aside>
+                    <h2>Filters</h2>
+
+                    <div class="col-12 col-md-2">
+                        <select class="form-select" name="" id="select-order">
+                            <option value="" selected hidden>Ordenar</option>
+                            <option value="name">Producto</option>
+                            <option value="price">Precio</option>
+                            <option value="categoryId">Categoría</option>
+                            <option value="id">Default</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <select class="form-select" id="select-filter">
+                            <option value="" selected hidden>Filtrar</option>
+                            <% categories.forEach(category => { %>
+                                <option value="<%= category.id %>"><%= category.name %> </option>
+
+                            <% }) %>
+                        </select>
+                    </div>
+
+                </aside>
+                <h2 id="total-productos"></h2>
+                <section id="table">
+                    
                 </section>
             </main>
 
             <%- include('./partials/footer') %>
     </body>
-
+    <script src="/JavaScript/filtros.js"></script>
 </html>

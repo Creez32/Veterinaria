@@ -3,7 +3,12 @@
     <%- include('../partials/head') %> 
 <body>
     <%- include('../partials/header') %> 
-    <h1>productos</h1>
+    <h1>Productos</h1>
+    <div>
+      <a href="/admin/create" >
+        <button class="btn btn-primary">Agregar producto</button>
+      </a>
+    </div>
     <section>
         <div class="table-responsive">
             <table class="table table-dark table-hover">
@@ -19,24 +24,26 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <% products.forEach(producto => { %>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Producto 1</td>
-                        <td>Una Marca</td>
-                        <td> $50999 </td>
-                        <td> Roedores </td>
-                        <td> Contenedores </td>
+                        <th scope="row"><%= producto.id %></th>
+                        <td><%= producto.name %></td>
+                        <td><%= producto.brand %></td>
+                        <td><%= producto.price %></td>
+                        <td><%= producto.category.name %></td>
+                        <td><%= producto.variety.name %></td>
                         <td> 
                           <div class="">
-                            <a href="/admin/edit/1">
+                            <a href="/admin/edit/<%= producto.id %>">
                                 <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
                             </a>
-                            <form action="/admin/eliminar/1?_method=DELETE" method="POST">
+                            <form action="/admin/eliminar/<%= producto.id %>?_method=DELETE" method="POST">
                                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </form>
                           </div>
                         </td>
                       </tr>
+                      <% }) %>
                     </tbody>
             </table>
         </div>
