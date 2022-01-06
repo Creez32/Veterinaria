@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 let db = require('../database/models')
+let Sequelize = require('sequelize')
 
 module.exports = {
     products : (req,res) => {
@@ -25,9 +26,31 @@ module.exports = {
             ]
         })
 		.then(producto =>{
-			res.render("detail",{
-				producto
-			})
+            
+            /* Productos Aleatorios por Categoria */
+            db.Categories.findAll({
+                where: {
+                    id: producto.categoryId
+                },
+                include: [
+                    {
+                        association:'product',
+                        order: [[Sequelize.literal("RAND()")]],
+                        limit: 4,
+                        include:[
+                            {all:true}
+                        ]
+                    }
+                ],
+                
+            })
+            .then(aleatorio =>{
+                /* return res.send(aleatorio[0].product) */
+			    res.render("detail",{
+                    producto,
+                    aleatorio: aleatorio[0].product
+			    })
+            })
 		})
 		.catch(error => res.send(error))
     },

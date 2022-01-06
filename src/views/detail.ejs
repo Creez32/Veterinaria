@@ -2,73 +2,231 @@
 <html lang="es">
 
     <%- include('./partials/head') %> 
-    
+
 <body class="detail">
-    <%- include('./partials/header') %> 
+    <%- include('./partials/header')  %> 
 
     <main>
-        <h1><%= producto.name %> </h1>
         <section>
-            
-            <article>
-                <div class="inicio">
+            <div class="product">
+                <div class="first">
+
+                    <!-- Imagenes -->
+
                     <section class="imagenes">
-                        <div class="extras">
-                            <% for( let i = 1; i < producto.images.length; i++ ) { %>
-                                <div class="extras"  style="background-image: url('/images/products/<%=producto.images[i].file%>');"></div>
-                            <% } %>
-                        </div>
-                        <div class="principal">
+                        <% if (producto.images.length == 1) { %>
+                            <div class="wrapper">
+                                <div class="container">
+                                  <div class="top"  style="background-image: url('/images/products/<%=producto.images[0].file%>');"> 
+                                  </div>
+                                </div>
+                            </div>
+                        <!-- <div class="principal">
                             <img src="/images/products/<%= producto.images[0].file %> " alt="">
-                        </div>
-                        
+                        </div> -->
+
+                        <% } else if (producto.images.length == 2) { %>
+                            <div class="wrapper">
+                                <div class="container">
+                                  <div class="top"  style="background-image: url('/images/products/<%=producto.images[0].file%>');"> 
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- <div class="principal">
+                                <img src="/images/products/<%= producto.images[0].file %> " alt="">
+                            </div> -->
+                            <div class="extras2 ">
+                                <% producto.images.forEach(e => { %>
+                                        <img src="/images/products/<%= e.file %> " alt="">
+                                <% }) %>
+                            </div>
+
+                        <% } else if (producto.images.length == 3) { %>
+                            <div class="wrapper">
+                                <div class="container">
+                                  <div class="top"  style="background-image: url('/images/products/<%=producto.images[0].file%>');"> 
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- <div class="principal">
+                                <img src="/images/products/<%= producto.images[0].file %> " alt="">
+                            </div> -->
+                            <div class="extras3 ">
+                                <% producto.images.forEach(e => { %>
+                                        <img src="/images/products/<%= e.file %> " alt="">
+                                <% }) %>
+                            </div>
+
+                        <% } else { %>
+                            <div class="wrapper">
+                                <div class="container">
+                                  <div class="top"  style="background-image: url('/images/products/<%=producto.images[0].file%>');"> 
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- <div class="principal">
+                                <img src="/images/products/<%= producto.images[0].file %> " alt="">
+                            </div> -->
+                            <div class="extras4 ">
+                                <% producto.images.forEach(e => { %>
+                                        <img src="/images/products/<%= e.file %> " alt="">
+                                <% }) %>
+                            </div>
+
+                        <% } %>
+
                     </section>
-                    <div class="content">
-                        <span><%= producto.price %> </span>
-                        <div class="cantidad">
-                            <button> + </button>
-                            <input type="number">
-                            <button> - </button>
+
+                    <div class="text">
+                        <div class="name">
+                            <h2><%= producto.name %> </h2>
+                        </div>
+                        <div class="name">
+                            <h2><%= producto.brand %> </h2>
                         </div>
                         <div class="color">
-                            <h3>Color</h3>
-                            <div class='supercolor'>
-                            <% producto.colors.forEach(color => { %>
-                                <div>
-                                    <input type="radio" name="color" id=<%= color.nombre %> class=<%= color.nombre%>>
-                                    <label for=<%= color.nombre %> class=<%= color.nombre %>><%= color.nombre %></label>
+                            <h3 class="text-center">Colores</h3>
+                            <div class="container">
+                                <div class="row d-flex justify-content-center">
+                                    <% producto.colors.forEach(color => { %>
+                                        <div class="col col-md-auto">
+                                            <input type="checkbox" name="color" value=<%= color.nombre %> id=<%= color.nombre %> class="btn-check
+                                            <%= color.nombre == 'naranja' ? 'orange' : null %>  
+                                            <%= color.nombre == 'rosa' ? 'pink' : null %>  
+                                            <%= color.nombre == 'marron' ? 'brown' : null %>  
+                                            ">
+                                            <label 
+                                            for=<%= color.nombre %> 
+                                            class="btn 
+                                            <%= color.nombre == 'rojo' ? 'btn-outline-danger' : null %> 
+                                            <%= color.nombre == 'azul' ? 'btn-outline-primary' : null %> 
+                                            <%= color.nombre == 'verde' ? 'btn-outline-success' : null %>
+                                            <%= color.nombre == 'amarillo' ? 'btn-outline-warning' : null %> 
+                                            <%= color.nombre == 'blanco' ? 'btn-outline-secondary' : null %> 
+                                            <%= color.nombre == 'negro' ? 'btn-outline-dark' : null %> 
+                                            <%= color.nombre == 'naranja' ? 'btn-outline-orange' : null %>  
+                                            <%= color.nombre == 'rosa' ? 'btn-outline-pink' : null %>  
+                                            <%= color.nombre == 'marron' ? 'btn-outline-brown' : null %>  
+                                            "><%= color.nombre %></label>
+                                        </div>
+                                    <% }) %>
                                 </div>
-                            <% }) %>
                             </div>
                         </div>
-                        <div class="botones">
-                            <button>Comprar</button>
-                            <button>Agregar al carrito</button>
+                        <div class="price">
+                            <div class="box">
+                                <h3>$<%= producto.price %> </h3>
+                                <div class="sell">
+                                    <div class="quantity">
+                                        <button class="more" onclick="down()">-</button>
+                                        <span id="result" class="number" ></span>
+                                        <button class="more" onclick="up()">+</button>
+                                    </div>
+                                    <button class="cart">
+                                        agregar al carrito
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
-                <div class="descripcion">
-                    <p><%= producto.description %></p>
+                <div class="box">
+                    <div class="description">
+                        <p><%= producto.detail %></p>
+                    </div>
                 </div>
-                <div class="table">
+                <div class="services">
+                    <div class="item">
+                        <h4>Envío sin cargo a todo el pais</h4>
+                        <p>Según monto de compra</p>
+                    </div>
+                    <div class="item">
+                        <h4>Aceptamos todas las tarjetas</h4>
+                        <p>¡Cuotas sin interes!</p>
+                    </div>
+                    <div class="item">
+                        <h4>Seguimiento de pedido</h4>
+                        <p>En el despacho de todos nuestros paquetes</p>
+                    </div>
+                    <div class="item">
+                        <h4>Devolución gratis</h4>
+                        <p>Tenés 30 días desde que lo recibís</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="extra">
+            <div class="opinions">
+                <h3>
+                    Opiniones
+                </h3>
+                <ul>
+                    <li>
+                        Color muy atractivo, profundo con destacados tonos violáceos.
+                    </li>
+                    <li>
+                        Al destapar una botella, nos deleita con una complejidad de aromas que entremezclan notas
+                        frescas, frutos rojos como ciruelas maduras, frutos negros y una delicada mineralidad que
+                        favorece aún más la frescura. Muy bien acomplejadas por dejos de vainilla provenientes de su
+                        paso por roble
+                    </li>
+                    <li>
+                        De taninos suaves y maduros, con muy buen equilibrio ácido en boca, refrescante, encontrándose
+                        las mismas notas de frutas que en nariz. Muy buen final de boca, equilibrado y elegante.
+                    </li>
+                </ul>
+            </div>
+            <div class="tecnic">
+                <h3>
+                    Detalles tecnicos
+                </h3>
+                <div class="items">
                     <ul>
                         <li>Variedad</li>
                         <li>Categoria</li>
-                        <li>Edad</li>
+                        <li>Edad recomendada</li>
+                        <li>Peso de la mascota</li>
                     </ul>
                     <ul>
-                        <li><%= producto.variety.name %></li>
-                        <li><%= producto.category.name %></li>
-                        <li><%= producto.edad %></li>
+                        <li><%= producto.variety.name  %> </li>
+                        <li><%= producto.category.name %> </li>
+                        <li><%= producto.edad %> </li>
+                        <li><%= producto.peso %></li>
                     </ul>
+
                 </div>
-            </article>
+            </div>
+        </section>
+        <section class="relacionated">
+            <h3>Productos Relacionados</h2>
+            <div class="cards">
+                <% aleatorio.forEach(producto => { %>
+                 
+                    <a href="/product/detail/<%= producto.id %>">
+                        <article>
+                          <%- include('./partials/cards',{
+                            producto: producto,
+                            name: producto.name,
+                            price: producto.price,
+                            edad: producto.edad,
+                            peso:producto.peso,
+                            stock:producto.stock,
+                            description: producto.description,
+                            categoria : producto.category.name,
+                            variedad: producto.variety.name
+                          }) %> 
+                        </article>
+                      </a>
+               
+                <% }) %>
+            </div>
         </section>
     </main>
-
-    <%- include('./partials/footer') %>
-     
     
+    <%- include('./partials/footer')  %> 
+    
+    <script src="/javascript/increase.js"></script>
 </body>
+
 </html>

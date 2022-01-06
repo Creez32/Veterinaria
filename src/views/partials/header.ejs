@@ -1,37 +1,45 @@
 <div id="blurry-filter"></div>
-<header>
-  <div>
-    <article id="title">
-      <a href="/">
-        <img src="/images/products/logo.png" alt="" height="128px">
-      </a>
-      <a href="/">
-        <p class="name">Veterinaria</p>
-      </a>
-      
-    </article>
-    <form class="d-flex" action="/search" method="GET">
-      <input class="form-control me-2" name="busqueda" type="busqueda" placeholder="Buscar productos" aria-label="busqueda">
-      <button class="btn btn-outline-success" type="submit">Buscar</button>
-    </form>
-    <article id="reference">
-      <ul>
-        <li>
-          <a href="/admin">Admin</a>
-        </li>
-          <li>
-            <a href="/product">Products</a>
-          </li>
-      </ul>
-      
-      <ul>
-        <% if (typeof user == 'undefined') { %>
-          <li><a href="/user/login"><i class="far fa-user-circle"></i></a></li>
-          <% } else { %>
-          <li><a href="/user/login"><img src="/images/Users/<%= user.img %>" class="avatar-header" alt=""></a></li>
-          <% } %>
-          <li><a href="/products/cart"><i class="fas fa-cart-plus"></i></a></li>
-      </ul>
-    </article>
+<header class="main-header">
+  <!-- BARRA DE NAVEGACION -->
+  <div class="container-fluid header-container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="/">
+          <img src="/images/products/logo.png" alt="" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/product">Tienda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">Sobre Mi</a>
+              </li>
+            </ul>
+            <form class="d-flex" action="/products/search" method="GET">
+              <input class="form-control me-2" name="search" type="search" placeholder="Buscar productos"
+                aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+            <ul class="icon">
+              <% if (typeof user=='undefined' ) { %>
+                <li><a href="/user/login"><i class="far fa-user-circle"></i></a></li>
+              <% } else { %>
+                <li><a href="/user/login"><img src="/images/Users/<%= user.img %>" class="avatar-header" alt=""></a></li>
+              <% } %>
+                <li><a href="/product/cart"><i class="fas fa-cart-plus"></i></a></li>
+            </ul>
+          </div>
+      </nav>
   </div>
+  
 </header>
