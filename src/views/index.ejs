@@ -24,7 +24,7 @@
       <section>
         <h1>Ofertas</h1>  
         <% productos.forEach(producto => { %>
-          <a href="/product/detail/<%= producto.id %>">
+          <!-- <a href="/product/detail/<%= producto.id %>"> -->
             <article>
               <%- include('./partials/cards',{
                 producto: producto,
@@ -38,7 +38,7 @@
                 variedad: producto.variety.name
               }) %> 
             </article>
-          </a>
+          <!-- </a> -->
         <% }) %>
       
       </section>

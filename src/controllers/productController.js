@@ -11,6 +11,9 @@ module.exports = {
         })
         Promise.all([categories,productos])
         .then(([categories,productos]) => {
+
+            
+
             return res.render('products', {
                 title: 'Express',
                 productos,

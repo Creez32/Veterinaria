@@ -5,5 +5,6 @@ const { getAllProducts,getProducts } = require('../../controllers/apiControllers
 
 router.get('/products-all', getAllProducts);
 router.get('/products', getProducts);
+router.get('/listar')
 
 module.exports = router

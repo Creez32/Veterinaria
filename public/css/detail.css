@@ -118,8 +118,8 @@
   border-radius: 10px;
   background-color: #a755a7;
 }
-
 .product .description {
+  text-align: center;
   padding: 0 10% 0 10%;
   margin: 20px 0;
 }
@@ -394,6 +394,7 @@
     width: 100%;
     max-width: 70px;
   }
+  
   .extra {
     display: flex;
     justify-content: space-around;

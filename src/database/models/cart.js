@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         as : 'orden',
         foreignKey : 'orderId',
         onDelete : 'cascade'
-      })
+      })  
       Cart.belongsTo(models.Products,{
         as : 'producto',
         foreignKey : 'productId'

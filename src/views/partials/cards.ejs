@@ -1,15 +1,20 @@
 <div class="wrapper">
+ 
     <div class="container">
+      <a href="/product/detail/<%= producto.id %>">
       <div class="top"  style="background-image: url('/images/products/<%=producto.images[0].file%>');">
         
       </div>
+    </a>
       <div class="bottom">
         <div class="left">
           <div class="details">
             <h3><%= name %></h3>
             <p>$ <%= price %></p>
           </div>
-          <div class="buy"><i class="fas fa-cart-plus"></i></div>
+            <div class="buy btn-cart"  onclick="agregarItem(event,'<%=producto.id%>')">
+              <i class="fas fa-cart-plus"></i>
+            </div>
         </div>
       </div>
     </div>
@@ -56,3 +61,5 @@
       </div>
     </div>
 </div>
+
+<script src="/JavaScript/cart.js"></script>

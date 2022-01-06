@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {index} = require('../controllers/indexController');
-const  {agregarItem,quitarItem,mostrarCarrito, vaciarCarrito} = require('../controllers/carritoController')
+const {agregarItem,quitarItem,mostrarCarrito, vaciarCarrito} = require('../controllers/apiControllers/cartRest')
 
 router.get('/agregar/:id',agregarItem);
 router.get('/quitar/:id',quitarItem);

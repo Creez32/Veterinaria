@@ -1,4 +1,6 @@
-let spanCantidad = document.querySelector('span.badge');
+
+
+let badge = document.querySelector('#badge');
 let changuito = document.querySelector('#lista-carrito tbody');
 let spanTotal = document.getElementById('total');
 let cartHead = document.getElementById('cart-head');
@@ -13,12 +15,14 @@ const urlBase = window.location.origin
 
 
 const agregarItem = async (e,id) => {
+    console.log('Item Agregado');
 
     e.preventDefault()
 
     try {
-        let response = await fetch(urlBase + '/agregar/' + id)
+        let response = await fetch(urlBase + '/cart/agregar/' + id)
         let result = await response.json()
+        console.log(result);
         cargarTabla(result)
         getCarrito()
     } catch (error) {
@@ -33,7 +37,7 @@ const cargarTabla = carrito => {
 
         let item = `
         <td class="col-2">
-        <img class="w-100" src="${producto.imagen}"> 
+        <img class="w-100" src="/images/products/${producto.imagen}"> 
         </td>
         <td class="text-center col-3">
         <a href="#" class="text-danger h5" onClick="return item('${producto.id}',-1)"><i class="fas fa-minus-square"></i></a>
@@ -58,7 +62,7 @@ const cargarTabla = carrito => {
 
 const getCarrito = async () => {
     try {
-        let response = await fetch(urlBase + '/listar')
+        let response = await fetch(urlBase + '/cart/listar')
         let result = await response.json()
         mostrarCantidad(result)
     } catch (error) {
@@ -75,7 +79,7 @@ const mostrarCantidad = carrito => {
         total += item.total
     })
 
-    spanCantidad.innerHTML = cantidad
+    badge.innerHTML = cantidad
     spanTotal.innerHTML = `<span>$</span> <span class="float-end">${total}</span>`
 
     if(cantidad == 0){
@@ -95,7 +99,7 @@ const mostrarCantidad = carrito => {
 
 const item = async(id,type) => {
     let url;
-    type == 1 ? url = urlBase + '/agregar/' + id : url = urlBase + '/quitar/' + id
+    type == 1 ? url = urlBase + '/cart/agregar/' + id : url = urlBase + '/cart/quitar/' + id
 
     try {
         let response = await fetch(url)
@@ -109,7 +113,7 @@ const item = async(id,type) => {
 
 const vaciarCarrito = async () => {
     try {
-        let response = await fetch(urlBase + '/vaciar')
+        let response = await fetch(urlBase + '/cart/vaciar')
         let result = await response.json()
         mostrarCantidad(result)
     } catch (error) {
@@ -118,6 +122,7 @@ const vaciarCarrito = async () => {
 }
 
 btnCartEmpty.addEventListener('click',(e) => {
+    console.log('Vaciando Carrito');
     e.preventDefault()
     while(changuito.firstChild){
         changuito.removeChild(changuito.firstChild)
@@ -126,7 +131,7 @@ btnCartEmpty.addEventListener('click',(e) => {
 })
 
 const mostrarInicial = async () => {
-    let response = await fetch(urlBase + '/listar')
+    let response = await fetch(urlBase + '/cart/listar')
     let result = await response.json()
     mostrarCantidad(result)
     cargarTabla(result)

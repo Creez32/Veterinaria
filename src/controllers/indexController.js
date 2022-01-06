@@ -14,6 +14,7 @@ module.exports = {
         })
         .then(productos => {
 
+            !req.session.carrito ? req.session.carrito = [] : null
             
             res.render('index', {
                 productos,
@@ -39,6 +40,7 @@ module.exports = {
         })
         Promise.all([categories,productos])
         .then(([categories,productos]) => {
+
             return res.render('search', {
                 productos,
                 categories

@@ -42,6 +42,8 @@ header {
   text-decoration: none;
 }
 
+
+
 header nav ul.icon {
   padding: 0;
   text-align: center;
@@ -73,4 +75,19 @@ header .logo {
 
 .navbar-dark .navbar-toggler {
   color: black;
+}
+
+.btn-cart{
+  border: 0;
+  background: none;
+  margin-right: 15px;
+}
+.btn-cart i{
+  font-size: 40px;
+}
+.btn-cart span{
+  font-size: 16px;
+  position: absolute;
+  top:5px;
+  right: 20px;
 }
