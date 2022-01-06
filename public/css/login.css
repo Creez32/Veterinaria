@@ -26,10 +26,10 @@
     padding: 10px 15px;
     margin: 0 auto;
     border-radius: 10px;
-    border: 1px solid red;
+    border: 1px solid #cc4141;
     background-color: palegreen;
 }
 .login form button:hover{
     border: 1px solid green;
-    background-color: rgb(127, 247, 127);
+    background-color: #396839;
 }

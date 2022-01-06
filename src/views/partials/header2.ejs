@@ -1,0 +1,123 @@
+<header>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Fravegino</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Categorias
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <% categorias.forEach(categoria=> { %>
+                    <li class="nav-item"><a class="nav-link" href="">
+                        <%= categoria.nombre %>
+                      </a></li>
+                    <% }) %>
+                </ul>
+              </li>
+  
+            </ul>
+            <form class="d-flex mx-auto">
+              <input class="form-control me-2 w-100" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+            <ul class="navbar-nav">
+              <% if (typeof userLogin != 'undefined') { %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle userName" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <%= userLogin.name %> 
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/users/logout">Cerrar sesión</a></li>
+                  </ul>
+                </li>
+                <% if (userLogin.rol === "admin") { %>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Administración
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/movies/list">Películas</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Géneros</a></li>
+                    </ul>
+                  </li>
+                <% } %>
+              
+              <% }else{ %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/users/register">Register</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/users/login">Login</a>
+                </li>
+           
+              <% } %>
+              <li class="nav-item">
+                <button type="button" class="nav-link btn-cart" data-bs-toggle="modal" data-bs-target="#modal-carrito">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span class="badge rounded-pill bg-warning"></span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <aside>
+    <!-- Modal -->
+    <div class="modal fade" id="modal-carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="miCarrito">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mi changuito</h5>
+          </div>
+          <div class="modal-body" id="lista-carrito">
+            <div class="table-responsive">
+              <table class="table">
+                <thead id="cart-head">
+                  <tr>
+                    <th colspan="3">Producto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">SubTotal</th>
+                  </tr>
+                </thead>
+                  <tbody>
+                    <span id="cart-empty" class="text-danger">El carrito no tiene productos agregados</span>
+                  </tbody>
+                  <tfoot id="cart-footer">
+                    <tr>
+                      <th colspan="4"  class="text-end" id="totaltitle">TOTAL:</th>
+                      <th >
+                        <h5 id="total"></h5>
+                      </th>
+                    </tr>
+                  </tfoot>
+                </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-danger" id="btn-delete-cart">Vaciar carrito</button>
+            <button type="button" class="btn btn-sm btn-success" data-bs-dismiss="modal">Seguir comprando</button>
+            <button type="button" class="btn btn-sm btn-primary" id="btn-next-buy">Finalizar compra</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>

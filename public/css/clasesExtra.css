@@ -20,7 +20,7 @@ input.orange:checked + .btn-outline-orange{
     background-color: #ca9249 !important;
     color:#ffffff !important;
     border-color: #ca9249 !important;
-}
+} 
 
 .btn-outline-pink{
     background-color: #ffffff00 !important;

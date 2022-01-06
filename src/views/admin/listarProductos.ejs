@@ -37,7 +37,7 @@
                             <a href="/admin/edit/<%= producto.id %>">
                                 <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
                             </a>
-                            <form action="/admin/eliminar/<%= producto.id %>?_method=DELETE" method="POST">
+                            <form action="/admin/eliminar/<%= producto.id %>?_method=DELETE" method="POST" id="eliminar-producto">
                                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </form>
                           </div>
@@ -48,5 +48,7 @@
             </table>
         </div>
     </section>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/JavaScript/SweetAlert.js"></script>
 </body>
 </html>
