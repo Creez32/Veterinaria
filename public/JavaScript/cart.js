@@ -1,18 +1,20 @@
 
 
-let badge = document.querySelector('#badge');
-let changuito = document.querySelector('#lista-carrito tbody');
-let spanTotal = document.getElementById('total');
-let cartHead = document.getElementById('cart-head');
-let cartFooter = document.getElementById('cart-footer');
-let cartEmpty = document.getElementById('cart-empty');
-let btnCartEmpty = document.getElementById('btn-delete-cart');
-let btnNextBuy = document.getElementById('btn-next-buy')
+const badge = document.querySelector('#badge');
+const changuito = document.querySelector('#lista-carrito tbody');
+const spanTotal = document.getElementById('total');
+const cartHead = document.getElementById('cart-head');
+const cartFooter = document.getElementById('cart-footer');
+const cartEmpty = document.getElementById('cart-empty');
+const btnCartEmpty = document.getElementById('boton-vaciarCarrito');
+const btnNextBuy = document.getElementById('btn-next-buy')
+
+console.log(btnCartEmpty);
+
 
 //const urlBase = 'http://localhost:3000'
 
 const urlBase = window.location.origin
-
 
 const agregarItem = async (e,id) => {
     console.log('Item Agregado');
@@ -138,7 +140,11 @@ const mostrarInicial = async () => {
 }
 
 
-window.addEventListener('load',() => {
-    getCarrito()
-    mostrarInicial()
-})
+    window.addEventListener('load',() => {
+
+        getCarrito()
+        mostrarInicial()
+
+    })
+
+

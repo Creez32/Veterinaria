@@ -9,7 +9,7 @@
         <h1 class="text-center pt-5 pb-5">Creando un producto nuevo </h1>
 
         <!-- Comienzo del Formulario -->
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data" id="crear-productos">
 
             <!-- Contenedor de imagenes y Principales -->
             <div class="container">
@@ -20,30 +20,37 @@
                         <div class="form-floating mb-3"> 
                             <input type="text" class="form-control" name="name" placeholder="Nombre del producto" id="name" placeholder="name@example.com">
                             <label for="name">Nombre del producto</label>
+                            <small id="errorNombre" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                         </div>
                         <div class="form-floating mb-3">
                             <input class="form-control" type="text" name="brand" placeholder="Marca del Producto" id="brand">
                             <label class="form-label" for="brand">Marca del Producto</label>
+                            <small id="errorBrand" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                         </div>
                         <div class="form-floating mb-3">
                             <input class="form-control" type="number" name="price" placeholder="Precio del producto" id="price">
                             <label class="form-label" for="price">Precio del producto</label>
+                            <small id="errorPrice" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                         </div>
                         <div class="form-floating mb-3">
                             <input class="form-control" type="number" name="discount" placeholder="Descuento del producto" id="discount">
                             <label class="form-label" for="discount">Descuento del producto</label>
+                            <small id="errorDiscount" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                         </div>
                         <div class="form-floating mb-3">
                             <input class="form-control" type="number" name="edad" placeholder="Edad para utilizar este producto" id="edad">
                             <label class="form-label" for="edad">Edad para utilizar este producto</label>
+                            <small id="errorEdad" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                         </div>
                         <div class="form-floating mb-3">
                             <input class="form-control" type="number" name="peso" placeholder="Peso de la mascota" id="peso">
                             <label class="form-label" for="peso">Peso de la mascota</label>
+                            <small id="errorPeso" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                         </div>
                         <div class="form-floating mb-3">
                             <input class="form-control" type="text" name="stock" placeholder="Stock con el que cuenta el producto" id="stock">
                             <label class="form-label" for="stock">Stock con el que cuenta el producto</label>
+                            <small id="errorStock" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                         </div>
                     </div>
         
@@ -118,6 +125,7 @@
                             </div>
 
                         </section>
+                        <small id="small-img"></small>
                     </div>
 
                     <!-- Fin del contenido principal -->
@@ -136,6 +144,7 @@
                             <div class="col col-md-auto">
                                 <input type="checkbox" name="color" value='rojo' id="rojo" class="btn-check">
                                 <label for="rojo" class="btn btn-outline-danger waves-effect">Rojo</label>
+                                
                             </div>
                             <div class="col col-md-auto">
                                 <input type="checkbox" name="color" value='azul' id="azul" class="btn-check">
@@ -169,6 +178,7 @@
                                 <input type="checkbox" name="color" value='marron' id="marron" class="btn-check brown">
                                 <label for="marron" class="btn btn-outline-brown">Marron</label>
                             </div>
+                            <small id="errorColor" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                         </div>
                     </div>
             
@@ -182,8 +192,8 @@
                                     <% categories.forEach(categoria => { %>
                                         <option value=<%=categoria.id%> ><%= categoria.name %></option>
                                     <% }) %>
-                                    
                                 </select>
+                                <small id="errorCategoria" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                             </div>
                     
                             <div class="col col-4">
@@ -193,6 +203,7 @@
                                         <option value=<%=variedad.id %> ><%= variedad.name %></option>
                                     <% }) %>
                                 </select>
+                                <small id="errorVariedad" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                             </div>
                         </div>
                     </div>
@@ -204,6 +215,7 @@
                                 <div class="form-floating"> 
                                     <textarea name="description" id="description" cols="300" rows="300" class="form-control" placeholder="Leave a comment here" style="resize: none;"></textarea>
                                     <label for="description">Descripcion del producto</label>
+                                    <small id="errorDescription" class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %> </small>
                                 </div>
                             </div>
                         </div>
@@ -216,11 +228,12 @@
             <!-- Button -->
 
             <div class="create-button text-center mt-5 pb-5">
-                <button class="btn btn-primary" type="submit">Crear producto</button>
+                <button class="btn btn-primary" id="send" type="submit">Crear producto</button>
             </div>
         </form>
     </main>
     <%- include('../partials/footer') %> 
     <script src="/JavaScript/images.js"></script>
+    <script src="/JavaScript/validacionProductos.js"></script>
 </body>
 </html>

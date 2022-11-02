@@ -12,7 +12,12 @@ ul{
     margin: 0;
     padding: 0;
 }
-
+p {
+    margin-bottom: 0;
+}
 li{
     list-style: none;
+}
+main{
+    min-height: calc(100vh - 284px);
 }

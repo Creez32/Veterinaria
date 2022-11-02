@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
+toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+precioFinal = (precio,descuento) => toThousand(precio - (descuento * precio / 100).toFixed(0));
+
 /* Bases de datos */
 let db = require('../database/models')
 const { Op, where } = require("sequelize");
@@ -22,6 +25,9 @@ module.exports = {
             });
         })
         .catch((error) => res.send(error))
+    },
+    contacto : (req, res) => {
+        return res.render('contacto')
     },
     search: (req, res) => {
 

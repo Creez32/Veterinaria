@@ -4,19 +4,17 @@ const app = express();
 const path = require('path');
 const port = 3030;
 
-
 const methodOverride = require('method-override');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const localCheck = require('./middlewares/localCheck')
 
-
 /* Routes */
 
-var indexRouter = require('./routes/index');
-var adminRouter = require('./routes/adminRouter');
-var productsRouter = require('./routes/product');
-var userRouter = require('./routes/userRouter');
+let indexRouter = require('./routes/index');
+let adminRouter = require('./routes/adminRouter');
+let productsRouter = require('./routes/product');
+let userRouter = require('./routes/userRouter');
 let apiRouter = require('./routes/Api/apiRouter');
 let cartRouter = require('./routes/cartRouter');
 

@@ -47,6 +47,9 @@ header {
 header nav ul.icon {
   padding: 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header nav ul li {

@@ -1,15 +1,24 @@
+<!-- Fitro de blur -->
 <div id="blurry-filter"></div>
+
+<!-- Header -->
 <header class="main-header">
   <!-- BARRA DE NAVEGACION -->
   <div class="container-fluid header-container">
       <nav class="navbar navbar-expand-lg navbar-light">
+
+        <!-- Logo -->
         <a href="/">
           <img src="/images/products/logo.png" alt="" class="logo">
         </a>
+
+        <!-- Burger menu -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Barra Colapsada bootrstrap -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -25,11 +34,16 @@
                 <a class="nav-link" href="/about">Sobre Mi</a>
               </li>
             </ul>
-            <form class="d-flex" action="/products/search" method="GET">
+
+            <!-- Buscador -->
+
+            <form class="d-flex" action="/products/search" method="GET" id="form-search">
               <input class="form-control me-2" name="search" type="search" placeholder="Buscar productos"
-                aria-label="Search">
+                aria-label="Search" id="input-search" >
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
+
+            <!-- Login y register y profile -->
             <ul class="icon">
               <% if (typeof user=='undefined' ) { %>
                 <li><a href="/user/login"><i class="far fa-user-circle"></i></a></li>
@@ -37,6 +51,8 @@
                 <li><a href="/user/login"><img src="/images/Users/<%= user.img %>" class="avatar-header" alt=""></a></li>
               <% } %>
                 <li>
+
+                  <!-- Button cart -->
                   <button type="button" class="nav-link btn-cart" data-bs-toggle="modal" data-bs-target="#modal-carrito">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="badge rounded-pill bg-warning"></span>
@@ -49,6 +65,7 @@
   
 </header>
 <aside>
+
   <!-- Modal -->
   <div class="modal fade" id="modal-carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -81,7 +98,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-danger" id="btn-delete-cart">Vaciar carrito</button>
+          <button type="button" class="btn btn-sm btn-danger" id="boton-vaciarCarrito">Vaciar carrito</button>
           <button type="button" class="btn btn-sm btn-success" data-bs-dismiss="modal">Seguir comprando</button>
           <button type="button" class="btn btn-sm btn-primary" id="btn-next-buy">Finalizar compra</button>
         </div>
@@ -89,3 +106,10 @@
     </div>
   </div>
 </aside>
+
+<script>
+  document.getElementById('form-search').addEventListener('submit', e => {
+    e.preventDefault()
+    document.getElementById('input-search').value !== '' && document.getElementById('form-search').submit()
+  })
+</script>

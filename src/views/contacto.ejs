@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+    <body>
+        <main class="create">
+            <%- include('./partials/header') %>
+
+                <!-- Titulo -->
+                <h1 class="text-center">CONTACTANOS</h1>  
+                <h3 class="text-center pt-3 pb-2"> Escríbenos y en breve los pondremos en contacto contigo</h3>
+                <!-- Comienzo del Formulario -->
+                <form action="" method="POST" enctype="multipart/form-data" class="d-flex justify-content-center">
+                    
+                    <div class="col col-lg-4 col-md-12 col-sm-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="name" placeholder="Nombre" id="name" />
+                            <label for="name">Nombre</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="email" placeholder="email" id="email"
+                                placeholder="email@example.com" />
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="telefono" placeholder="telefono" id="telefono"
+                                placeholder="+54261000000" />
+                            <label for="telefono">telefono</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="asunto" placeholder="asunto" id="asunto"
+                                placeholder="Escriba aqui su asunto" />
+                            <label for="asunto">asunto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="mensaje" placeholder="mensaje" id="mensaje"
+                                placeholder="Escriba aqui su mensaje" />
+                            <label for="mensaje">Mensaje</label>
+                        </div>
+
+                        <div class="create-button text-center mt-4 pb-3">
+                            <button class="btn btn-primary" type="submit">Crear producto</button>
+                        </div>
+                    </div>
+                </form>
+        </main>
+        <%- include('./partials/footer') %>
+    </body>
+
+</html>
